@@ -1,0 +1,75 @@
+# Python
+
+**pycache**/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+
+venv/
+.venv/
+env/
+
+# Environment variables
+
+.env
+.env.*
+*.env
+
+# Testing / coverage
+
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.pytest_cache/
+
+# Logs
+
+*.log
+logs/
+
+# Build / distribution
+
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Database
+
+*.sqlite3
+*.db
+
+# IDE / editors
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker
+
+docker-compose.override.yml
+
+# OS files
+
+.DS_Store
+Thumbs.db
+
+# Alembic
+
+alembic/versions/*.pyc
+
+# Jupyter
+
+.ipynb_checkpoints/
+
+# Misc
+
+*.bak
+*.tmp

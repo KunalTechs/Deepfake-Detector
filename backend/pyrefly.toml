@@ -1,0 +1,6 @@
+[project]
+python_version = "3.10"
+search_path = ["."]
+site_package_path = [
+    "/home/kushagra/Documents/Deepfake-Detector/backend/venv/lib/python3.10/site-packages",
+]

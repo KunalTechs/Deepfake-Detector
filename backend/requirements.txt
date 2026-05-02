@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+pydantic-settings
+loguru
+torch
+torchvision
+opencv-python-headless
+numpy
+facenet-pytorch
+Pillow
+slowapi
+python-multipart
+pytest
+pytest-asyncio
+httpx
