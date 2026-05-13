@@ -2,67 +2,62 @@ import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Upload, Film, Brain, BarChart2, CheckCircle2 } from 'lucide-react';
 
-/* ─────────────────────────────────────────
-   DATA — mirrors the flowchart (no extension)
-───────────────────────────────────────── */
 const steps = [
   {
     id: 'input',
     phase: 'INPUT',
     icon: Upload,
-    title: 'User Uploads File',
-    desc: 'Drop an image or video into the web app dashboard.',
+    title: 'User uploads file',
+    desc: 'Drop an image or video into the dashboard. Accepted formats: JPG, PNG, MP4, AVI, MOV.',
     color: '#6366f1',
     glow: 'rgba(99,102,241,0.35)',
     accent: '#818cf8',
   },
   {
-    id: 'backend',
-    phase: 'BACKEND PROCESSING',
+    id: 'frames',
+    phase: 'PREPROCESSING',
     icon: Film,
-    title: 'System Extracts Frames',
-    desc: 'Frames are extracted at 1 frame/sec ensuring efficient, consistent processing.',
+    title: 'Frame extraction & face detection',
+    desc: 'OpenCV samples frames uniformly, skipping first/last 10%. MTCNN detects the largest face, applies 20px margin and crops to 224×224px.',
     color: '#8b5cf6',
     glow: 'rgba(139,92,246,0.35)',
     accent: '#a78bfa',
   },
   {
     id: 'inference',
-    phase: 'INFERENCE',
+    phase: 'MODEL INFERENCE',
     icon: Brain,
-    title: 'AI Scans Each Frame',
-    desc: 'Our neural model inspects every frame for deepfake signatures and GAN artifacts.',
+    title: 'EfficientNet-B0 forward pass',
+    desc: 'The 224×224 face crop passes through 7 MBConv blocks (5.3M parameters). Custom head: Dropout(0.3) → Linear(1280→1).',
     color: '#ec4899',
     glow: 'rgba(236,72,153,0.35)',
     accent: '#f472b6',
   },
   {
-    id: 'result',
-    phase: 'RESULT',
+    id: 'sigmoid',
+    phase: 'SCORING',
     icon: BarChart2,
-    title: 'Average Fake Probability',
-    desc: 'System returns a clear confidence score — e.g., 90% Real — with a heatmap report.',
+    title: 'Sigmoid threshold at 0.5',
+    desc: 'torch.sigmoid() converts the logit to a probability. Above 0.5 → FAKE. Below 0.5 → REAL. Scores aggregated across all frames for video.',
     color: '#10b981',
     glow: 'rgba(16,185,129,0.35)',
     accent: '#34d399',
     highlight: true,
   },
   {
-    id: 'done',
-    phase: 'COMPLETE',
+    id: 'result',
+    phase: 'OUTPUT',
     icon: CheckCircle2,
-    title: 'Process Complete',
-    desc: 'Download your full forensic report or integrate results via the REST API.',
+    title: 'Verdict with confidence score',
+    desc: 'Returns overall_prediction, fake_confidence, real_confidence, per-frame breakdown, face bbox coordinates and processing time in ms.',
     color: '#38bdf8',
     glow: 'rgba(56,189,248,0.35)',
     accent: '#7dd3fc',
   },
-];
+]
 
-/* ── Animated connector arrow between steps ── */
 const Connector = ({ color, delay }) => (
   <div className="flex flex-col items-center" style={{ height: 56 }}>
-    {/* Track */}
     <div className="relative flex flex-col items-center w-px flex-1">
       <motion.div
         className="w-px h-full"
@@ -72,7 +67,6 @@ const Connector = ({ color, delay }) => (
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay }}
       />
-      {/* Travelling dot */}
       <motion.div
         className="absolute top-0 w-2 h-2 rounded-full"
         style={{ background: color, boxShadow: `0 0 8px ${color}` }}
@@ -82,7 +76,6 @@ const Connector = ({ color, delay }) => (
         transition={{ duration: 1.2, delay: delay + 0.3, ease: 'easeInOut' }}
       />
     </div>
-    {/* Arrowhead */}
     <motion.div
       initial={{ opacity: 0, scale: 0 }}
       whileInView={{ opacity: 1, scale: 1 }}
@@ -97,11 +90,10 @@ const Connector = ({ color, delay }) => (
       }}
     />
   </div>
-);
+)
 
-/* ── Individual step card ── */
 const StepCard = ({ step, index }) => {
-  const { icon: Icon, phase, title, desc, color, glow, accent, highlight } = step;
+  const { icon: Icon, phase, title, desc, color, glow, accent, highlight } = step
 
   return (
     <motion.div
@@ -121,15 +113,15 @@ const StepCard = ({ step, index }) => {
         width: '100%',
       }}
     >
-      {/* Corner glow on hover */}
       <motion.div
-        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100
+                   transition-opacity duration-500 pointer-events-none"
         style={{ background: `radial-gradient(circle at 20% 20%, ${glow}, transparent 60%)` }}
       />
 
-      {/* Phase label */}
       <div
-        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4"
+        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full
+                   text-xs font-bold uppercase tracking-widest mb-4"
         style={{
           background: `${color}15`,
           border: `1px solid ${color}30`,
@@ -137,7 +129,6 @@ const StepCard = ({ step, index }) => {
           fontFamily: "'Syne', sans-serif",
         }}
       >
-        {/* Blinking dot for highlight card */}
         {highlight && (
           <motion.span
             className="w-1.5 h-1.5 rounded-full"
@@ -150,7 +141,6 @@ const StepCard = ({ step, index }) => {
       </div>
 
       <div className="flex items-start gap-4 relative z-10">
-        {/* Icon box */}
         <motion.div
           className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
           style={{ background: `${color}15`, border: `1px solid ${color}30` }}
@@ -167,13 +157,13 @@ const StepCard = ({ step, index }) => {
           >
             {title}
           </h3>
-          <p className="text-slate-400 text-sm leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-slate-400 text-sm leading-relaxed"
+             style={{ fontFamily: "'DM Sans', sans-serif" }}>
             {desc}
           </p>
         </div>
       </div>
 
-      {/* Bottom shimmer on highlight */}
       {highlight && (
         <motion.div
           className="absolute bottom-0 left-0 right-0 h-px"
@@ -183,26 +173,22 @@ const StepCard = ({ step, index }) => {
         />
       )}
     </motion.div>
-  );
-};
+  )
+}
 
-/* ── Main section ── */
 export const ProcessSection = () => {
-  const titleRef = useRef(null);
-  const isInView = useInView(titleRef, { once: true, margin: '-80px' });
+  const titleRef = useRef(null)
+  const isInView = useInView(titleRef, { once: true, margin: '-80px' })
 
   return (
     <section
       className="relative w-full py-28 px-6 overflow-hidden"
       style={{ background: '#000000' }}
     >
-      {/* Top divider */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-px pointer-events-none"
         style={{ background: 'linear-gradient(90deg, transparent, rgba(99,102,241,0.4), transparent)' }}
       />
-
-      {/* Background grid */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -210,24 +196,25 @@ export const ProcessSection = () => {
           backgroundSize: '60px 60px',
         }}
       />
-
-      {/* Ambient glow */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(99,102,241,0.07), transparent 70%)', filter: 'blur(40px)' }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                   w-[500px] h-[500px] pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(99,102,241,0.07), transparent 70%)',
+                 filter: 'blur(40px)' }}
       />
 
       <div className="relative z-10 max-w-4xl mx-auto">
-        {/* Header */}
         <div ref={titleRef} className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-indigo-400 mb-6"
-            style={{ background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.2)' }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full
+                       text-xs font-bold uppercase tracking-widest text-indigo-400 mb-6"
+            style={{ background: 'rgba(99,102,241,0.1)',
+                     border: '1px solid rgba(99,102,241,0.2)' }}
           >
-            How It Works
+            Model pipeline
           </motion.div>
 
           <motion.h2
@@ -249,7 +236,7 @@ export const ProcessSection = () => {
                 display: 'inline-block',
               }}
             >
-              Verdict
+              Inference
             </motion.span>
           </motion.h2>
 
@@ -260,11 +247,11 @@ export const ProcessSection = () => {
             className="text-slate-400 max-w-md mx-auto text-base"
             style={{ fontFamily: "'DM Sans', sans-serif" }}
           >
-            Our pipeline processes your media in under 2 seconds — from raw file to forensic confidence score.
+            EfficientNet-B0 runs the full pipeline — MTCNN face detection,
+            224×224 preprocessing, 7-block forward pass, sigmoid scoring.
           </motion.p>
         </div>
 
-        {/* Steps flow */}
         <div className="flex flex-col items-center">
           {steps.map((step, i) => (
             <React.Fragment key={step.id}>
@@ -277,13 +264,12 @@ export const ProcessSection = () => {
         </div>
       </div>
 
-      {/* Bottom fade */}
       <div
         className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
         style={{ background: 'linear-gradient(to top, #000000, transparent)' }}
       />
     </section>
-  );
-};
+  )
+}
 
 export default ProcessSection;

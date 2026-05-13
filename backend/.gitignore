@@ -73,3 +73,8 @@ alembic/versions/*.pyc
 
 *.bak
 *.tmp
+
+*.pt
+*.pth
+*.bin
+

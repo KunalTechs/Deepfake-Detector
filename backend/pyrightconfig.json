@@ -1,4 +1,6 @@
 {
-  "venvPath": "/home/kushagra/Documents/Deepfake-Detector/backend",
-  "venv": "venv"
+  "venvPath": "C:\\Users\\KUNAL\\OneDrive\\Documents\\Projects\\DeepFake Detector\\backend",
+  "venv": "venv",
+  "pythonVersion": "3.12",
+  "typeCheckingMode": "basic"
 }

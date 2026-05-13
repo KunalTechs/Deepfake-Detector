@@ -1,0 +1,28 @@
+
+services:
+
+  backend:
+    build: ./backend
+    container_name: deepfake-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - MODEL_PATH=app/models/model_v3.pt
+      - DEVICE=cpu
+      - MAX_FILE_SIZE_MB=50
+    volumes:
+      - ./backend/app/models:/app/app/models
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: deepfake-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+networks:
+  default:
+    name: deepfake-network

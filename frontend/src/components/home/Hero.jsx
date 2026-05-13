@@ -1,9 +1,8 @@
 import React, { useRef, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Zap, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Cpu, ArrowRight, ShieldCheck } from 'lucide-react';
 
-// Animated scan line
 const ScanLine = () => (
   <motion.div
     className="absolute left-0 w-full h-px pointer-events-none z-0"
@@ -14,7 +13,6 @@ const ScanLine = () => (
   />
 );
 
-// Floating particle
 const Particle = ({ style }) => (
   <motion.div
     className="absolute rounded-full pointer-events-none"
@@ -42,13 +40,6 @@ const containerVariants = {
 const itemVariants = {
   hidden: { opacity: 0, y: 36 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
-};
-
-const gradientTextVariants = {
-  animate: {
-    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-    transition: { duration: 4, repeat: Infinity, ease: 'linear' },
-  },
 };
 
 export const HeroSection = () => {
@@ -89,16 +80,18 @@ export const HeroSection = () => {
         }}
       />
 
-      {/* Scan line */}
       <ScanLine />
 
-      {/* Glow orbs */}
+      {/* Glow orb center */}
       <motion.div
         className="absolute rounded-full pointer-events-none z-0"
         style={{
-          width: 600, height: 600,
-          top: '50%', left: '50%',
-          x: '-50%', y: '-50%',
+          width: 600,
+          height: 600,
+          top: '50%',
+          left: '50%',
+          x: '-50%',
+          y: '-50%',
           background: 'radial-gradient(circle, rgba(99,102,241,0.18), transparent 70%)',
           filter: 'blur(80px)',
           willChange: 'transform',
@@ -106,10 +99,15 @@ export const HeroSection = () => {
         animate={{ scale: [1, 1.1, 1], opacity: [0.8, 1, 0.8] }}
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
       />
+
+      {/* Glow orb bottom right */}
       <motion.div
         className="absolute rounded-full pointer-events-none z-0"
         style={{
-          width: 280, height: 280, bottom: '5%', right: '5%',
+          width: 280,
+          height: 280,
+          bottom: '5%',
+          right: '5%',
           background: 'radial-gradient(circle, rgba(139,92,246,0.15), transparent 70%)',
           filter: 'blur(60px)',
           willChange: 'transform',
@@ -117,10 +115,15 @@ export const HeroSection = () => {
         animate={{ scale: [1, 1.15, 1], opacity: [0.6, 1, 0.6] }}
         transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
       />
+
+      {/* Glow orb top left */}
       <motion.div
         className="absolute rounded-full pointer-events-none z-0"
         style={{
-          width: 200, height: 200, top: '8%', left: '5%',
+          width: 200,
+          height: 200,
+          top: '8%',
+          left: '5%',
           background: 'radial-gradient(circle, rgba(56,189,248,0.1), transparent 70%)',
           filter: 'blur(50px)',
           willChange: 'transform',
@@ -134,7 +137,7 @@ export const HeroSection = () => {
         <Particle key={p.id} style={p.style} />
       ))}
 
-      {/* Content */}
+      {/* Main content */}
       <motion.div
         style={{ y, opacity, willChange: 'transform, opacity' }}
         variants={containerVariants}
@@ -157,10 +160,9 @@ export const HeroSection = () => {
             animate={{ opacity: [1, 0.3, 1] }}
             transition={{ duration: 1.6, repeat: Infinity, ease: 'easeOut' }}
           >
-            <Zap size={14} className="text-indigo-400 fill-indigo-400" />
+            <Cpu size={14} className="text-indigo-400" />
           </motion.div>
-          <span>V2.0 — Next-Gen Detection Engine</span>
-          {/* Live dot */}
+          <span>EfficientNet-B0 · Trained on 80K frames</span>
           <motion.span
             className="w-2 h-2 rounded-full bg-indigo-400 ml-1"
             animate={{ scale: [1, 1.6, 1], opacity: [1, 0.4, 1] }}
@@ -187,7 +189,7 @@ export const HeroSection = () => {
               display: 'inline-block',
             }}
           >
-            with Precision
+            with EfficientNet
           </motion.span>
         </motion.h1>
 
@@ -197,12 +199,17 @@ export const HeroSection = () => {
           className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl leading-relaxed"
           style={{ fontFamily: "'DM Sans', sans-serif" }}
         >
-          Protect your digital identity. Our state-of-the-art AI analyzes images
-          and videos to identify face swaps, GAN artifacts, and synthetic media in seconds.
+          EfficientNet-B0 trained on 80,000 frames from Celeb-DF v2 and
+          FaceForensics++. Upload an image or video — MTCNN detects the face,
+          the model runs inference and returns a sigmoid confidence score.
         </motion.p>
 
         {/* CTA Buttons */}
-        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-4">
+        <motion.div
+          variants={itemVariants}
+          className="flex flex-col sm:flex-row items-center gap-4"
+        >
+          {/* Primary button */}
           <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }}>
             <Link
               to="/dashboard"
@@ -212,7 +219,7 @@ export const HeroSection = () => {
                 boxShadow: '0 0 30px rgba(99,102,241,0.4), inset 0 1px 0 rgba(255,255,255,0.15)',
               }}
             >
-              <span className="relative z-10">Start Analyzing Now</span>
+              <span className="relative z-10">Run Inference Now</span>
               <motion.div
                 className="relative z-10"
                 animate={{ x: [0, 3, 0] }}
@@ -229,6 +236,7 @@ export const HeroSection = () => {
             </Link>
           </motion.div>
 
+          {/* Secondary button */}
           <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }}>
             <a
               href="#features"
@@ -241,7 +249,7 @@ export const HeroSection = () => {
               }}
             >
               <ShieldCheck size={18} className="text-indigo-400" />
-              <span>Learn More</span>
+              <span>Model details</span>
             </a>
           </motion.div>
         </motion.div>
@@ -252,9 +260,9 @@ export const HeroSection = () => {
           className="mt-16 flex flex-wrap justify-center gap-8 sm:gap-16"
         >
           {[
-            { value: '99.4%', label: 'Detection Accuracy' },
-            { value: '<2s', label: 'Average Analysis Time' },
-            { value: '50M+', label: 'Media Scanned' },
+            { value: '98.98%', label: 'Validation accuracy' },
+            { value: '0.9992', label: 'AUC-ROC score' },
+            { value: '80K',    label: 'Training frames' },
           ].map((stat, i) => (
             <motion.div
               key={stat.label}
@@ -269,7 +277,9 @@ export const HeroSection = () => {
               >
                 {stat.value}
               </span>
-              <span className="text-xs text-slate-500 uppercase tracking-widest">{stat.label}</span>
+              <span className="text-xs text-slate-500 uppercase tracking-widest">
+                {stat.label}
+              </span>
             </motion.div>
           ))}
         </motion.div>
