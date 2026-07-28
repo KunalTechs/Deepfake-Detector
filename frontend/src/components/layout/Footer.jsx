@@ -21,7 +21,7 @@ const FooterLink = ({ href, to, children }) => {
       <El
         href={href}
         to={to}
-        className="text-slate-500 hover:text-slate-200 text-sm transition-colors duration-200 flex items-center gap-1.5 group"
+        className="text-slate-500 hover:text-slate-800 text-sm transition-colors duration-200 flex items-center gap-1.5 group"
       >
         <motion.span
           className="w-0 h-px bg-indigo-400 group-hover:w-3 transition-all duration-200"
@@ -39,10 +39,10 @@ const SocialBtn = ({ href, icon: Icon, label }) => (
     aria-label={label}
     whileHover={{ y: -3, scale: 1.1 }}
     whileTap={{ scale: 0.9 }}
-    className="w-10 h-10 rounded-xl flex items-center justify-center text-slate-400 hover:text-white transition-colors"
+    className="w-10 h-10 rounded-xl flex items-center justify-center text-slate-600 hover:text-slate-900 transition-colors"
     style={{
-      background: 'rgba(255,255,255,0.04)',
-      border: '1px solid rgba(255,255,255,0.08)',
+      background: 'rgba(0, 0, 0,0.04)',
+      border: '1px solid rgba(0, 0, 0,0.08)',
     }}
   >
     <Icon size={17} />
@@ -57,7 +57,7 @@ const Footer = () => {
     <footer
       ref={ref}
       className="relative w-full overflow-hidden"
-      style={{ background: '#000000', borderTop: '1px solid rgba(255,255,255,0.06)' }}
+      style={{ background: 'transparent', borderTop: '1px solid rgba(0, 0, 0,0.06)' }}
     >
       {/* Top glow */}
       <div
@@ -98,7 +98,7 @@ const Footer = () => {
                 <Shield size={22} className="text-indigo-400" />
               </motion.div>
               <span
-                className="text-lg font-black tracking-tight text-white"
+                className="text-lg font-black tracking-tight text-slate-900"
                 style={{ fontFamily: "'Syne', sans-serif" }}
               >
                 DeepFake{' '}
@@ -156,7 +156,7 @@ const Footer = () => {
         <motion.div
           variants={itemVariants}
           className="h-px mb-8"
-          style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }}
+          style={{ background: 'linear-gradient(90deg, transparent, rgba(0, 0, 0,0.07), transparent)' }}
         />
 
         {/* Bottom row */}
@@ -175,7 +175,7 @@ const Footer = () => {
                 key={badge}
                 whileHover={{ scale: 1.05 }}
                 className="inline-flex items-center gap-1.5 text-xs text-slate-500 px-3 py-1 rounded-full"
-                style={{ border: '1px solid rgba(255,255,255,0.07)', background: 'rgba(255,255,255,0.02)' }}
+                style={{ border: '1px solid rgba(0, 0, 0,0.07)', background: 'rgba(0, 0, 0,0.02)' }}
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" style={{ boxShadow: '0 0 6px #10b981' }} />
                 {badge}

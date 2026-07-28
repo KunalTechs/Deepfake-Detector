@@ -8,9 +8,9 @@ export default {
     extend: {
       colors: {
         bg: {
-          primary: '#0f172a',
-          secondary: '#1e293b',
-          glass: 'rgba(30, 41, 59, 0.6)',
+          primary: '#fbfaf8',
+          secondary: '#f3f0e9',
+          glass: 'rgba(251, 250, 248, 0.7)',
         },
         accent: {
           DEFAULT: '#6366f1',
@@ -25,7 +25,7 @@ export default {
           bg: 'rgba(239, 68, 68, 0.1)',
         },
         border: {
-          color: 'rgba(255, 255, 255, 0.1)',
+          color: 'rgba(0, 0, 0, 0.1)',
         }
       },
       fontFamily: {

@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-bg-primary text-slate-50 min-h-screen font-sans;
+    @apply bg-bg-primary text-slate-900 min-h-screen font-sans;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -16,13 +16,13 @@
 
 @layer utilities {
   .glass-panel {
-    @apply bg-bg-glass border border-border-color rounded-[1.5rem] shadow-2xl;
+    @apply bg-bg-glass border border-border-color rounded-[1.5rem] shadow-xl shadow-black/5;
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
   }
 
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-br from-indigo-400 to-purple-400;
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-indigo-600 to-purple-600;
   }
   
   /* Custom scrollbar */

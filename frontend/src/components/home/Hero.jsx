@@ -68,7 +68,7 @@ export const HeroSection = () => {
     <section
       ref={ref}
       className="relative w-full min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden"
-      style={{ background: '#000000' }}
+      style={{ background: 'transparent' }}
     >
       {/* Grid overlay */}
       <div
@@ -173,7 +173,7 @@ export const HeroSection = () => {
         {/* Headline */}
         <motion.h1
           variants={itemVariants}
-          className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tight text-white mb-6 leading-[0.95]"
+          className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tight text-slate-900 mb-6 leading-[0.95]"
           style={{ fontFamily: "'Syne', sans-serif" }}
         >
           Detect Deepfakes
@@ -196,7 +196,7 @@ export const HeroSection = () => {
         {/* Subtext */}
         <motion.p
           variants={itemVariants}
-          className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl leading-relaxed"
+          className="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl leading-relaxed"
           style={{ fontFamily: "'DM Sans', sans-serif" }}
         >
           EfficientNet-B0 trained on 80,000 frames from Celeb-DF v2 and
@@ -213,10 +213,10 @@ export const HeroSection = () => {
           <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }}>
             <Link
               to="/dashboard"
-              className="group relative inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-white font-semibold text-base overflow-hidden"
+              className="group relative inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-slate-900 font-semibold text-base overflow-hidden"
               style={{
                 background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
-                boxShadow: '0 0 30px rgba(99,102,241,0.4), inset 0 1px 0 rgba(255,255,255,0.15)',
+                boxShadow: '0 0 30px rgba(99,102,241,0.4), inset 0 1px 0 rgba(0, 0, 0,0.15)',
               }}
             >
               <span className="relative z-10">Run Inference Now</span>
@@ -240,10 +240,10 @@ export const HeroSection = () => {
           <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }}>
             <a
               href="#features"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-slate-300 font-medium text-base transition-colors duration-300 hover:text-white"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-slate-700 font-medium text-base transition-colors duration-300 hover:text-slate-900"
               style={{
-                background: 'rgba(255,255,255,0.04)',
-                border: '1px solid rgba(255,255,255,0.1)',
+                background: 'rgba(0, 0, 0,0.04)',
+                border: '1px solid rgba(0, 0, 0,0.1)',
                 backdropFilter: 'blur(8px)',
                 WebkitBackdropFilter: 'blur(8px)',
               }}
@@ -272,7 +272,7 @@ export const HeroSection = () => {
               transition={{ delay: 0.7 + i * 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
               <span
-                className="text-3xl font-black text-white"
+                className="text-3xl font-black text-slate-900"
                 style={{ fontFamily: "'Syne', sans-serif" }}
               >
                 {stat.value}
@@ -288,7 +288,7 @@ export const HeroSection = () => {
       {/* Bottom gradient fade */}
       <div
         className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none z-0"
-        style={{ background: 'linear-gradient(to top, #000000, transparent)' }}
+        style={{ background: 'linear-gradient(to top, #fbfaf8, transparent)' }}
       />
     </section>
   );

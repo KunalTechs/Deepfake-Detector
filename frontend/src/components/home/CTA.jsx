@@ -17,7 +17,7 @@ const datasets = [
   {
     name: 'model_v3.pt',
     role: 'EfficientNet-B0 · 12 epochs · Kaggle T4 x2 · ~40 mins',
-    text: 'Trained from ImageNet pretrained weights on combined 40K frame dataset. Validation accuracy 98.98%, AUC-ROC 0.9992, best epoch saved automatically.',
+    text: 'Trained from ImageNet pretrained weights on combined 80K frame dataset. Validation accuracy 98.98%, AUC-ROC 0.9992, best epoch saved automatically.',
   },
 ]
 
@@ -29,7 +29,7 @@ export const CallToAction = () => {
     <section
       ref={ref}
       className="relative w-full py-28 px-6 overflow-hidden"
-      style={{ background: '#000000' }}
+      style={{ background: 'transparent' }}
     >
       <div
         className="absolute inset-0 z-0 pointer-events-none"
@@ -76,8 +76,8 @@ export const CallToAction = () => {
                             ease: [0.22, 1, 0.36, 1] }}
               className="rounded-2xl p-6"
               style={{
-                background: 'rgba(255,255,255,0.03)',
-                border: '1px solid rgba(255,255,255,0.07)',
+                background: 'rgba(0, 0, 0,0.03)',
+                border: '1px solid rgba(0, 0, 0,0.07)',
               }}
             >
               <div className="flex items-center gap-2 mb-3">
@@ -95,12 +95,12 @@ export const CallToAction = () => {
                   Dataset
                 </span>
               </div>
-              <p className="text-slate-300 text-sm leading-relaxed mb-4"
+              <p className="text-slate-700 text-sm leading-relaxed mb-4"
                  style={{ fontFamily: "'DM Sans', sans-serif" }}>
                 "{d.text}"
               </p>
               <div>
-                <p className="text-white text-sm font-semibold"
+                <p className="text-slate-900 text-sm font-semibold"
                    style={{ fontFamily: "'Syne', sans-serif" }}>
                   {d.name}
                 </p>
@@ -158,12 +158,12 @@ export const CallToAction = () => {
               animate={{ y: [0, -6, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
             >
-              <Cpu size={36} className="text-white" />
+              <Cpu size={36} className="text-slate-900" />
             </motion.div>
           </div>
 
           <h2
-            className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight"
+            className="text-4xl md:text-6xl font-black text-slate-900 mb-6 leading-tight"
             style={{ fontFamily: "'Syne', sans-serif" }}
           >
             Ready to run
@@ -178,7 +178,7 @@ export const CallToAction = () => {
           </h2>
 
           <p
-            className="text-lg text-slate-400 mb-10 max-w-xl mx-auto"
+            className="text-lg text-slate-600 mb-10 max-w-xl mx-auto"
             style={{ fontFamily: "'DM Sans', sans-serif" }}
           >
             Upload an image or video. MTCNN crops the face. EfficientNet-B0
@@ -191,11 +191,11 @@ export const CallToAction = () => {
             <Link
               to="/dashboard"
               className="group relative inline-flex items-center gap-3 px-10 py-4
-                         rounded-2xl text-white font-bold text-base overflow-hidden
+                         rounded-2xl text-slate-900 font-bold text-base overflow-hidden
                          transition-all duration-300"
               style={{
                 background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
-                boxShadow: '0 0 40px rgba(99,102,241,0.4), inset 0 1px 0 rgba(255,255,255,0.2)',
+                boxShadow: '0 0 40px rgba(99,102,241,0.4), inset 0 1px 0 rgba(0, 0, 0,0.2)',
               }}
             >
               <span className="relative z-10">Run inference</span>

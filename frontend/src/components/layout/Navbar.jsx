@@ -28,12 +28,12 @@ const Navbar = () => {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className="w-full sticky top-0 z-50 transition-all duration-300"
       style={{
-        background: scrolled ? 'rgba(0,0,0,0.9)' : 'rgba(0,0,0,0.4)',
+        background: scrolled ? 'rgba(251, 250, 248, 0.95)' : 'rgba(251, 250, 248, 0.7)',
         backdropFilter: 'blur(16px)',
         borderBottom: scrolled
           ? '1px solid rgba(99,102,241,0.15)'
-          : '1px solid rgba(255,255,255,0.05)',
-        boxShadow: scrolled ? '0 4px 40px rgba(0,0,0,0.6)' : 'none',
+          : '1px solid rgba(0, 0, 0,0.05)',
+        boxShadow: scrolled ? '0 4px 20px rgba(0,0,0,0.05)' : 'none',
       }}
     >
       {/* Top accent line */}
@@ -67,7 +67,7 @@ const Navbar = () => {
           </motion.div>
 
           <span
-            className="text-xl font-black tracking-tight text-white"
+            className="text-xl font-black tracking-tight text-slate-900"
             style={{ fontFamily: "'Syne', sans-serif" }}
           >
             DeepFake
@@ -96,7 +96,7 @@ const Navbar = () => {
                   {...elProps}
                   className="relative px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 group"
                   style={{
-                    color: isActive ? 'white' : 'rgba(148,163,184,1)',
+                    color: isActive ? '#0f172a' : '#475569',
                     fontFamily: "'DM Sans', sans-serif",
                     textDecoration: 'none',
                   }}
@@ -123,7 +123,7 @@ const Navbar = () => {
           })}
 
           {/* Divider */}
-          <div className="w-px h-5 mx-2 flex-shrink-0" style={{ background: 'rgba(255,255,255,0.1)' }} />
+          <div className="w-px h-5 mx-2 flex-shrink-0" style={{ background: 'rgba(0, 0, 0,0.1)' }} />
 
           {/* Launch App button */}
           <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
@@ -132,14 +132,14 @@ const Navbar = () => {
               className="relative inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white overflow-hidden"
               style={{
                 background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
-                boxShadow: '0 0 20px rgba(99,102,241,0.35), inset 0 1px 0 rgba(255,255,255,0.15)',
+                boxShadow: '0 0 20px rgba(99,102,241,0.35), inset 0 1px 0 rgba(0, 0, 0,0.15)',
               }}
             >
               <motion.span
                 className="absolute inset-0"
                 animate={{ x: ['-100%', '100%'] }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: 'linear', repeatDelay: 1 }}
-                style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent)' }}
+                style={{ background: 'linear-gradient(90deg, transparent, rgba(0, 0, 0,0.12), transparent)' }}
               />
               <span className="relative z-10">Launch App</span>
             </Link>

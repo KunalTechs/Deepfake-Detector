@@ -40,7 +40,7 @@ const ResultCard = ({ result, onReset }) => {
       <div
         className="rounded-2xl overflow-hidden"
         style={{
-          background: "rgba(255,255,255,0.02)",
+          background: "rgba(0, 0, 0,0.02)",
           border: `1px solid ${color}30`,
           boxShadow: `0 0 40px ${glow}`,
         }}
@@ -80,7 +80,7 @@ const ResultCard = ({ result, onReset }) => {
                     : "Model found no manipulation"}
                 </div>
                 <h2
-                  className="text-2xl font-black text-white"
+                  className="text-2xl font-black text-slate-900"
                   style={{ fontFamily: "'Syne', sans-serif" }}
                 >
                   {isFake
@@ -94,8 +94,8 @@ const ResultCard = ({ result, onReset }) => {
             <div
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs"
               style={{
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
+                background: "rgba(0, 0, 0,0.04)",
+                border: "1px solid rgba(0, 0, 0,0.08)",
                 color: "rgba(148,163,184,1)",
               }}
             >
@@ -128,8 +128,8 @@ const ResultCard = ({ result, onReset }) => {
                 key={label}
                 className="rounded-xl p-3 text-center"
                 style={{
-                  background: "rgba(255,255,255,0.03)",
-                  border: "1px solid rgba(255,255,255,0.07)",
+                  background: "rgba(0, 0, 0,0.03)",
+                  border: "1px solid rgba(0, 0, 0,0.07)",
                 }}
               >
                 <p
@@ -163,8 +163,8 @@ const ResultCard = ({ result, onReset }) => {
       <div
         className="rounded-2xl p-5"
         style={{
-          background: "rgba(255,255,255,0.02)",
-          border: "1px solid rgba(255,255,255,0.07)",
+          background: "rgba(0, 0, 0,0.02)",
+          border: "1px solid rgba(0, 0, 0,0.07)",
         }}
       >
         <div
@@ -200,7 +200,7 @@ const ResultCard = ({ result, onReset }) => {
               style={{
                 height: 8,
                 borderRadius: 4,
-                background: "rgba(255,255,255,0.06)",
+                background: "rgba(0, 0, 0,0.06)",
               }}
             >
               <motion.div
@@ -218,8 +218,8 @@ const ResultCard = ({ result, onReset }) => {
       <div
         className="rounded-2xl p-5"
         style={{
-          background: "rgba(255,255,255,0.02)",
-          border: "1px solid rgba(255,255,255,0.07)",
+          background: "rgba(0, 0, 0,0.02)",
+          border: "1px solid rgba(0, 0, 0,0.07)",
         }}
       >
         <div
@@ -243,8 +243,8 @@ const ResultCard = ({ result, onReset }) => {
               width: 40,
               height: 40,
               borderRadius: "50%",
-              background: "rgba(255,255,255,0.05)",
-              border: "1px solid rgba(255,255,255,0.1)",
+              background: "rgba(0, 0, 0,0.05)",
+              border: "1px solid rgba(0, 0, 0,0.1)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -253,7 +253,7 @@ const ResultCard = ({ result, onReset }) => {
             <Eye size={18} style={{ color: "rgba(148,163,184,1)" }} />
           </div>
           <div>
-            <p style={{ fontSize: 13, fontWeight: 500, color: "white" }}>
+            <p style={{ fontSize: 13, fontWeight: 500, color: "#0f172a" }}>
               {frameResults[0]?.face_detected
                 ? "1 face detected"
                 : "No face detected — full frame used"}
@@ -280,8 +280,8 @@ const ResultCard = ({ result, onReset }) => {
         <div
           className="rounded-2xl overflow-hidden"
           style={{
-            background: "rgba(255,255,255,0.02)",
-            border: "1px solid rgba(255,255,255,0.07)",
+            background: "rgba(0, 0, 0,0.02)",
+            border: "1px solid rgba(0, 0, 0,0.07)",
           }}
         >
           <button
@@ -324,7 +324,7 @@ const ResultCard = ({ result, onReset }) => {
                 transition={{ duration: 0.3 }}
                 style={{
                   overflow: "hidden",
-                  borderTop: "1px solid rgba(255,255,255,0.07)",
+                  borderTop: "1px solid rgba(0, 0, 0,0.07)",
                 }}
               >
                 <div className="p-5">
@@ -386,7 +386,7 @@ const ResultCard = ({ result, onReset }) => {
                             flex: 1,
                             height: 6,
                             borderRadius: 3,
-                            background: "rgba(255,255,255,0.06)",
+                            background: "rgba(0, 0, 0,0.06)",
                           }}
                         >
                           <motion.div
@@ -475,8 +475,8 @@ const ResultCard = ({ result, onReset }) => {
       <div
         className="rounded-2xl p-5"
         style={{
-          background: "rgba(255,255,255,0.02)",
-          border: "1px solid rgba(255,255,255,0.07)",
+          background: "rgba(0, 0, 0,0.02)",
+          border: "1px solid rgba(0, 0, 0,0.07)",
         }}
       >
         <div
@@ -503,8 +503,8 @@ const ResultCard = ({ result, onReset }) => {
             <div
               key={label}
               style={{
-                background: "rgba(255,255,255,0.03)",
-                border: "1px solid rgba(255,255,255,0.07)",
+                background: "rgba(0, 0, 0,0.03)",
+                border: "1px solid rgba(0, 0, 0,0.07)",
                 borderRadius: 10,
                 padding: "8px 10px",
                 textAlign: "center",
@@ -521,7 +521,7 @@ const ResultCard = ({ result, onReset }) => {
               >
                 {label}
               </p>
-              <p style={{ fontSize: 12, fontWeight: 500, color: "white" }}>
+              <p style={{ fontSize: 12, fontWeight: 500, color: "#0f172a" }}>
                 {val}
               </p>
             </div>
@@ -561,7 +561,7 @@ const ResultCard = ({ result, onReset }) => {
         whileHover={{ scale: 1.02, y: -2 }}
         whileTap={{ scale: 0.97 }}
         className="w-full flex items-center justify-center gap-2 py-4 rounded-2xl
-                   text-white font-semibold text-sm relative overflow-hidden"
+                   text-slate-900 font-semibold text-sm relative overflow-hidden"
         style={{
           background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
           boxShadow: "0 0 30px rgba(99,102,241,0.3)",

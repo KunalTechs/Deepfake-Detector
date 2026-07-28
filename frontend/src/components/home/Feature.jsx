@@ -74,8 +74,8 @@ const FeatureCard = ({ feature, index }) => {
       className="relative group rounded-2xl p-7 flex flex-col gap-4
                  overflow-hidden cursor-default"
       style={{
-        background: 'rgba(255,255,255,0.03)',
-        border: '1px solid rgba(255,255,255,0.08)',
+        background: 'rgba(0, 0, 0,0.03)',
+        border: '1px solid rgba(0, 0, 0,0.08)',
         backdropFilter: 'blur(12px)',
       }}
     >
@@ -96,12 +96,12 @@ const FeatureCard = ({ feature, index }) => {
 
       <div>
         <h3
-          className="text-lg font-bold text-white mb-2"
+          className="text-lg font-bold text-slate-900 mb-2"
           style={{ fontFamily: "'Syne', sans-serif" }}
         >
           {title}
         </h3>
-        <p className="text-slate-400 text-sm leading-relaxed"
+        <p className="text-slate-600 text-sm leading-relaxed"
            style={{ fontFamily: "'DM Sans', sans-serif" }}>
           {description}
         </p>
@@ -124,7 +124,7 @@ export const FeaturesSection = () => {
     <section
       id="features"
       className="relative w-full py-28 px-6 overflow-hidden"
-      style={{ background: '#000000' }}
+      style={{ background: 'transparent' }}
     >
       <div
         className="absolute inset-0 z-0 pointer-events-none"
@@ -180,7 +180,7 @@ export const FeaturesSection = () => {
             initial={{ opacity: 0, y: 24 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.65, delay: 0.1 }}
-            className="text-4xl md:text-5xl font-black text-white mb-4"
+            className="text-4xl md:text-5xl font-black text-slate-900 mb-4"
             style={{ fontFamily: "'Syne', sans-serif" }}
           >
             How the model works
@@ -190,10 +190,10 @@ export const FeaturesSection = () => {
             initial={{ opacity: 0, y: 24 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.65, delay: 0.2 }}
-            className="text-slate-400 max-w-xl mx-auto text-base"
+            className="text-slate-600 max-w-xl mx-auto text-base"
             style={{ fontFamily: "'DM Sans', sans-serif" }}
           >
-            EfficientNet-B0 trained on 40,000 frames from Celeb-DF v2
+            EfficientNet-B0 trained on 80,000 frames from Celeb-DF v2
             and FaceForensics++. Validation accuracy 98.98% · AUC-ROC 0.9992.
           </motion.p>
         </div>

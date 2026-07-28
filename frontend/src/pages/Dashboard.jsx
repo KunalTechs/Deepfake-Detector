@@ -24,8 +24,8 @@ const StatPill = ({ icon: Icon, label, value, color, delay }) => (
     transition={{ delay, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
     className="flex items-center gap-3 px-4 py-3 rounded-2xl flex-1"
     style={{
-      background: 'rgba(255,255,255,0.03)',
-      border: '1px solid rgba(255,255,255,0.07)',
+      background: 'rgba(0, 0, 0,0.03)',
+      border: '1px solid rgba(0, 0, 0,0.07)',
     }}
   >
     <div
@@ -35,7 +35,7 @@ const StatPill = ({ icon: Icon, label, value, color, delay }) => (
       <Icon size={15} style={{ color }} />
     </div>
     <div className="min-w-0">
-      <p className="text-white text-sm font-bold leading-none mb-0.5"
+      <p className="text-slate-900 text-sm font-bold leading-none mb-0.5"
          style={{ fontFamily: "'Syne', sans-serif" }}>
         {value}
       </p>
@@ -76,7 +76,7 @@ const Dashboard = () => {
 
   return (
     <div className="relative min-h-screen w-full flex flex-col"
-         style={{ background: '#000000' }}>
+         style={{ background: 'transparent' }}>
       <GridBg />
 
       {/* Ambient glows */}
@@ -116,7 +116,7 @@ const Dashboard = () => {
           </motion.div>
 
           <h1
-            className="text-4xl md:text-5xl font-black text-white mb-3"
+            className="text-4xl md:text-5xl font-black text-slate-900 mb-3"
             style={{ fontFamily: "'Syne', sans-serif" }}
           >
             Deepfake{' '}
@@ -135,7 +135,7 @@ const Dashboard = () => {
             </motion.span>
           </h1>
 
-          <p className="text-slate-400 text-base max-w-lg mx-auto"
+          <p className="text-slate-600 text-base max-w-lg mx-auto"
              style={{ fontFamily: "'DM Sans', sans-serif" }}>
             Powered by EfficientNet-B0 trained on 80,000 frames from
             Celeb-DF v2 and FaceForensics++. Upload an image or video

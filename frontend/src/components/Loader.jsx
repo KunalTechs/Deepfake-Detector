@@ -15,7 +15,7 @@ const Loader = () => {
       className="relative flex flex-col items-center justify-center
                  py-14 px-8 rounded-2xl overflow-hidden"
       style={{
-        background: 'rgba(255,255,255,0.02)',
+        background: 'rgba(0, 0, 0,0.02)',
         border: '1px solid rgba(99,102,241,0.15)',
       }}
     >
@@ -69,7 +69,7 @@ const Loader = () => {
 
       {/* Title */}
       <motion.h3
-        className="text-xl font-black text-white mb-1"
+        className="text-xl font-black text-slate-900 mb-1"
         style={{ fontFamily: "'Syne', sans-serif" }}
         animate={{ opacity: [0.8, 1, 0.8] }}
         transition={{ duration: 2, repeat: Infinity }}
@@ -96,8 +96,8 @@ const Loader = () => {
             <motion.div
               className="w-4 h-4 rounded-full flex items-center
                          justify-center flex-shrink-0"
-              initial={{ background: 'rgba(255,255,255,0.05)',
-                         border: '1px solid rgba(255,255,255,0.1)' }}
+              initial={{ background: 'rgba(0, 0, 0,0.05)',
+                         border: '1px solid rgba(0, 0, 0,0.1)' }}
               animate={{ background: 'rgba(99,102,241,0.3)',
                          border: '1px solid rgba(99,102,241,0.6)' }}
               transition={{ delay: i * 0.6 + 0.3, duration: 0.4 }}
@@ -126,7 +126,7 @@ const Loader = () => {
       {/* Progress bar */}
       <div
         className="mt-8 w-full max-w-xs h-1 rounded-full overflow-hidden"
-        style={{ background: 'rgba(255,255,255,0.05)' }}
+        style={{ background: 'rgba(0, 0, 0,0.05)' }}
       >
         <motion.div
           className="h-full rounded-full"

@@ -42,8 +42,8 @@ const Upload = ({ type, onFileUpload }) => {
       style={{
         background: isDragging
           ? `linear-gradient(135deg, ${color}18, ${color}08)`
-          : 'rgba(255,255,255,0.025)',
-        border: `1px solid ${isDragging ? color + '60' : 'rgba(255,255,255,0.07)'}`,
+          : 'rgba(0, 0, 0,0.025)',
+        border: `1px solid ${isDragging ? color + '60' : 'rgba(0, 0, 0,0.07)'}`,
         boxShadow: isDragging ? `0 0 40px ${glow}` : 'none',
         transition: 'background 0.2s, border 0.2s, box-shadow 0.2s',
       }}
@@ -67,7 +67,7 @@ const Upload = ({ type, onFileUpload }) => {
           >
             <div className="flex flex-col items-center gap-2">
               <UploadCloud size={36} style={{ color }} />
-              <span className="text-white font-semibold text-sm" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              <span className="text-slate-900 font-semibold text-sm" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                 Drop to analyze
               </span>
             </div>
@@ -86,7 +86,7 @@ const Upload = ({ type, onFileUpload }) => {
       </motion.div>
 
       <h3
-        className="text-xl font-black text-white mb-2"
+        className="text-xl font-black text-slate-900 mb-2"
         style={{ fontFamily: "'Syne', sans-serif" }}
       >
         {title}
@@ -99,10 +99,10 @@ const Upload = ({ type, onFileUpload }) => {
       {/* Format badge */}
       <div
         className="w-full py-3 px-4 rounded-xl flex items-center justify-between"
-        style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}
+        style={{ background: 'rgba(0, 0, 0,0.04)', border: '1px solid rgba(0, 0, 0,0.06)' }}
       >
         <span className="text-slate-500 text-xs uppercase tracking-widest">Formats</span>
-        <span className="text-slate-300 text-xs font-semibold">{subtitle}</span>
+        <span className="text-slate-700 text-xs font-semibold">{subtitle}</span>
       </div>
 
       {/* Selected file name */}

@@ -20,7 +20,7 @@ const Home = () => {
   return (
     <div
       className="w-full"
-      style={{ background: '#0a0c1b', color: '#fff', minHeight: '100vh' }}
+      style={{ background: 'transparent', color: 'inherit', minHeight: '100vh' }}
     >
       <HeroSection />
       <FeaturesSection />

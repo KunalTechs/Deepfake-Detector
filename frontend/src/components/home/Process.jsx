@@ -106,8 +106,8 @@ const StepCard = ({ step, index }) => {
       style={{
         background: highlight
           ? `linear-gradient(135deg, ${color}18, ${color}08)`
-          : 'rgba(255,255,255,0.03)',
-        border: `1px solid ${highlight ? color + '40' : 'rgba(255,255,255,0.07)'}`,
+          : 'rgba(0, 0, 0,0.03)',
+        border: `1px solid ${highlight ? color + '40' : 'rgba(0, 0, 0,0.07)'}`,
         boxShadow: highlight ? `0 0 40px ${color}15` : 'none',
         maxWidth: 480,
         width: '100%',
@@ -152,12 +152,12 @@ const StepCard = ({ step, index }) => {
 
         <div>
           <h3
-            className="text-white font-bold text-base mb-1"
+            className="text-slate-900 font-bold text-base mb-1"
             style={{ fontFamily: "'Syne', sans-serif" }}
           >
             {title}
           </h3>
-          <p className="text-slate-400 text-sm leading-relaxed"
+          <p className="text-slate-600 text-sm leading-relaxed"
              style={{ fontFamily: "'DM Sans', sans-serif" }}>
             {desc}
           </p>
@@ -183,7 +183,7 @@ export const ProcessSection = () => {
   return (
     <section
       className="relative w-full py-28 px-6 overflow-hidden"
-      style={{ background: '#000000' }}
+      style={{ background: 'transparent' }}
     >
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-px pointer-events-none"
@@ -221,7 +221,7 @@ export const ProcessSection = () => {
             initial={{ opacity: 0, y: 24 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.65, delay: 0.1 }}
-            className="text-4xl md:text-5xl font-black text-white mb-4"
+            className="text-4xl md:text-5xl font-black text-slate-900 mb-4"
             style={{ fontFamily: "'Syne', sans-serif" }}
           >
             From Upload to{' '}
@@ -244,7 +244,7 @@ export const ProcessSection = () => {
             initial={{ opacity: 0, y: 24 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.65, delay: 0.2 }}
-            className="text-slate-400 max-w-md mx-auto text-base"
+            className="text-slate-600 max-w-md mx-auto text-base"
             style={{ fontFamily: "'DM Sans', sans-serif" }}
           >
             EfficientNet-B0 runs the full pipeline — MTCNN face detection,
@@ -266,7 +266,7 @@ export const ProcessSection = () => {
 
       <div
         className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
-        style={{ background: 'linear-gradient(to top, #000000, transparent)' }}
+        style={{ background: 'linear-gradient(to top, #fbfaf8, transparent)' }}
       />
     </section>
   )
